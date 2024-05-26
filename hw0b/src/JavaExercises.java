@@ -6,7 +6,11 @@ public class JavaExercises {
     /** Returns an array [1, 2, 3, 4, 5, 6] */
     public static int[] makeDice() {
         // TODO: Fill in this function.
-        return null;
+        int[] dice = new int[6];
+        for (int i = 0; i < 6; i++) {
+            dice[i] = i+1;
+        }
+        return dice;
     }
 
     /** Returns the order depending on the customer.
@@ -15,14 +19,33 @@ public class JavaExercises {
      *  In any other case, return an empty String[] of size 3. */
     public static String[] takeOrder(String customer) {
         // TODO: Fill in this function.
-        return null;
+        String[] order1 = {"beyti", "pizza", "hamburger", "tea"};
+        String[] order2 = {"sushi", "pasta", "avocado", "coffee"};
+        String[] emptyOrder = new String[3];
+        if (customer.equals("Ergun")) {
+            return order1;
+        }
+        if (customer.equals("Erik")) {
+            return order2;
+        }
+        return emptyOrder;
     }
 
     /** Returns the positive difference between the maximum element and minimum element of the given array.
      *  Assumes array is nonempty. */
     public static int findMinMax(int[] array) {
         // TODO: Fill in this function.
-        return 0;
+        int maximum = array[0];
+        int minimum = array[0];
+        for (int i = 1; i < array.length; i++) {
+            if (array[i] > maximum) {
+                maximum = array[i];
+            }
+            if (array[i] < minimum) {
+                minimum = array[i];
+            }
+        }
+        return maximum - minimum;
     }
 
     /**
@@ -39,7 +62,15 @@ public class JavaExercises {
 
     private static List<Integer> hailstoneHelper(int x, List<Integer> list) {
         // TODO: Fill in this function.
-        return null;
+        list.add(x);
+        if (x == 1) {
+            return list;
+        }
+        if (x % 2 == 0) {
+            return hailstoneHelper(x/2, list);
+        } else {
+            return hailstoneHelper(3*x +1, list);
+        }
     }
 
 }
